@@ -4,33 +4,34 @@ import com.codecool.model.*;
 import com.codecool.service.PostOffice;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import static com.codecool.model.MailTypes.BIG_BOX;
 
 public class Main {
     public static void main(String[] args) {
         Mail letter0 = new Letter("where");
-        Mail letter = new Letter("where", LocalDate.parse("2023-01-10"));
+        Mail letter = new Letter("where");
         System.out.println(letter.getPrice());
-        Mail letter1 = new Letter("where", LocalDate.parse("2023-01-10"));
+        Mail letter1 = new Letter("where");
         System.out.println(letter.getPrice());
-        Mail smallBox = new SmallBox("where", LocalDate.parse("2023-01-10"));
+        Mail smallBox = new SmallBox("where");
         System.out.println(smallBox.getPrice());
-        Mail bigBox = new BigBox("there",LocalDate.parse("2023-01-10"),500);
+        Mail bigBox = new BigBox("there",500);
         System.out.println(bigBox.getPrice());
-        Mail bigBox1 = new BigBox("there",LocalDate.parse("2023-01-10"),200);
+        Mail bigBox1 = new BigBox("there",200);
         System.out.println(bigBox.getPrice());
 
         PostOffice postOffice = new PostOffice();
-        postOffice.addMail(letter);
-        postOffice.addMail(letter1);
-        postOffice.addMail(smallBox);
-        postOffice.addMail(bigBox);
-        postOffice.addMail(bigBox1);
+        postOffice.postMail(letter0);
+        postOffice.postMail(letter);
+        postOffice.postMail(letter1);
+        postOffice.postMail(smallBox);
+        postOffice.postMail(bigBox);
+        postOffice.postMail(bigBox1);
 
-        Set<Mail> mails20230110 = postOffice.mailsByDate(LocalDate.parse("2023-01-10"));
-        for (Mail mail : mails20230110) {
+        List<Mail> mailsAtDate = postOffice.mailsByDate(LocalDate.parse("2023-10-01"));
+        for (Mail mail : mailsAtDate) {
             System.out.println(mail.getType());
         }
 

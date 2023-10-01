@@ -8,15 +8,11 @@ import static com.codecool.model.MailTypes.SMALL_BOX;
 public class SmallBox implements Mail {
     private final MailTypes type = SMALL_BOX;
     private final String address;
-    private final LocalDate posted;
+
+    private LocalDate posted = null;
 
     public SmallBox(String address) {
         this.address = address;
-        this.posted = LocalDate.now();
-    }
-    public SmallBox(String address, LocalDate posted) {
-        this.address = address;
-        this.posted = posted;
     }
 
     @Override
@@ -32,6 +28,11 @@ public class SmallBox implements Mail {
     @Override
     public MailTypes getType() {
         return type;
+    }
+
+    @Override
+    public void setPosted(LocalDate posted) {
+        this.posted = posted;
     }
 
     @Override

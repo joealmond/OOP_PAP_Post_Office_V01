@@ -9,33 +9,30 @@ import java.util.stream.Collectors;
 
 public class PostOffice {
 
-    private final Set<Mail> mails;
+    private final List<Mail> mails;
 
     public PostOffice() {
-        this.mails = new HashSet<>();
+        this.mails = new ArrayList<>();
     }
 
-    public void addMail(Mail mail) {
+    public void postMail(Mail mail) {
+        LocalDate datePosted = LocalDate.now();
+        mail.setPosted(datePosted);
         mails.add(mail);
         System.out.println("Mail succsfully added!");
     }
 
-    public void addAllMails(Set<Mail> mails) {
-        this.mails.addAll(mails);
-        System.out.println("Mails succsfully added!");
-    }
-
-    public Set<Mail> mailsByDate(LocalDate date) {
+    public List<Mail> mailsByDate(LocalDate date) {
         return mails
                 .stream()
                 .filter(mail -> mail.getPosted().equals(date))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
     public double calculateIncome(MailTypes type) {
         return mails.stream()
                 .filter(mail -> mail.getType().equals(type))
-                .mapToDouble(mail -> mail.getPrice())
+                .mapToDouble(Mail::getPrice)
                 .sum();
     }
 

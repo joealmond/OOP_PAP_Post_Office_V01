@@ -8,15 +8,11 @@ import static com.codecool.model.MailTypes.LETTER;
 public class Letter implements Mail {
     private final MailTypes type = LETTER;
     private final String address;
-    private final LocalDate posted;
+
+    private LocalDate posted = null;
 
     public Letter(String address) {
         this.address = address;
-        this.posted = LocalDate.now();
-    }
-    public Letter(String address, LocalDate posted) {
-        this.address = address;
-        this.posted = posted;
     }
 
     @Override
@@ -32,6 +28,10 @@ public class Letter implements Mail {
     @Override
     public MailTypes getType() {
         return type;
+    }
+    @Override
+    public void setPosted(LocalDate datePosted) {
+        this.posted = datePosted;
     }
 
     @Override

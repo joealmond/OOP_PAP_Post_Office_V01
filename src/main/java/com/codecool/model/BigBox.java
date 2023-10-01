@@ -10,16 +10,11 @@ public class BigBox implements Mail {
     private final MailTypes type = BIG_BOX;
     private final double gramms;
     private final String address;
-    private final LocalDate posted;
+
+    private LocalDate posted = null;
 
     public BigBox(String address, double gramms) {
         this.address = address;
-        this.posted = LocalDate.now();
-        this.gramms = gramms;
-    }
-    public BigBox(String address, LocalDate posted, double gramms) {
-        this.address = address;
-        this.posted = posted;
         this.gramms = gramms;
     }
 
@@ -40,6 +35,11 @@ public class BigBox implements Mail {
     @Override
     public MailTypes getType() {
         return type;
+    }
+
+    @Override
+    public void setPosted(LocalDate posted) {
+        this.posted = posted;
     }
 
     @Override
