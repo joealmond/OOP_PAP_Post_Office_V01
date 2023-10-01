@@ -20,7 +20,7 @@ public class SmallBox implements Mail {
     }
 
     @Override
-    public LocalDate getPosted() {
+    public LocalDate getDatePosted() {
         return posted;
     }
 
@@ -30,7 +30,7 @@ public class SmallBox implements Mail {
     }
 
     @Override
-    public void setPosted(LocalDate posted) {
+    public void setDatePosted(LocalDate posted) {
         this.posted = posted;
     }
 

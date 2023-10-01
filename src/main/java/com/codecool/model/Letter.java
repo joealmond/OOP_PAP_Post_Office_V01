@@ -21,7 +21,7 @@ public class Letter implements Mail {
     }
 
     @Override
-    public LocalDate getPosted() {
+    public LocalDate getDatePosted() {
         return posted;
     }
 
@@ -30,7 +30,7 @@ public class Letter implements Mail {
         return type;
     }
     @Override
-    public void setPosted(LocalDate datePosted) {
+    public void setDatePosted(LocalDate datePosted) {
         this.posted = datePosted;
     }
 }

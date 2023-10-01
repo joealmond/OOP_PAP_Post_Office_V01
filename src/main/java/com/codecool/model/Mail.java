@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public interface Mail {
     double getPrice();
-    LocalDate getPosted();
-    void setPosted(LocalDate datePosted);
+    LocalDate getDatePosted();
+    void setDatePosted(LocalDate datePosted);
     MailTypes getType();
 }

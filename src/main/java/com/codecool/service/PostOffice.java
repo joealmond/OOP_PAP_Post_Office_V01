@@ -17,7 +17,7 @@ public class PostOffice {
 
     public void postMail(Mail mail) {
         LocalDate datePosted = LocalDate.now();
-        mail.setPosted(datePosted);
+        mail.setDatePosted(datePosted);
         mails.add(mail);
         System.out.println("Mail succsfully added!");
     }
@@ -25,7 +25,7 @@ public class PostOffice {
     public List<Mail> mailsByDate(LocalDate date) {
         return mails
                 .stream()
-                .filter(mail -> mail.getPosted().equals(date))
+                .filter(mail -> mail.getDatePosted().equals(date))
                 .collect(Collectors.toList());
     }
 
