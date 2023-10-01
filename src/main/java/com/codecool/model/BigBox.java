@@ -1,7 +1,6 @@
 package com.codecool.model;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 import static com.codecool.model.MailTypes.BIG_BOX;
 import static com.codecool.model.MailTypes.BIG_BOX_FEE;
@@ -42,19 +41,4 @@ public class BigBox implements Mail {
         this.posted = posted;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BigBox bigBox = (BigBox) o;
-        return Double.compare(gramms, bigBox.gramms) == 0
-                && type == bigBox.type
-                && Objects.equals(address, bigBox.address)
-                && Objects.equals(posted, bigBox.posted);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(type, address, posted, gramms);
-    }
 }
