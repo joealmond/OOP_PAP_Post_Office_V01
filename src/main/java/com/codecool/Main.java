@@ -10,6 +10,7 @@ import static com.codecool.model.MailTypes.BIG_BOX;
 
 public class Main {
     public static void main(String[] args) {
+        Mail letter0 = new Letter("where");
         Mail letter = new Letter("where", LocalDate.parse("2023-01-10"));
         System.out.println(letter.getPrice());
         Mail letter1 = new Letter("where", LocalDate.parse("2023-01-10"));

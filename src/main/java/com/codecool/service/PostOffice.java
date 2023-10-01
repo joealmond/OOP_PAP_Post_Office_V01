@@ -33,13 +33,10 @@ public class PostOffice {
     }
 
     public double calculateIncome(MailTypes type) {
-        double sum = 0;
-        for (Mail mail : mails) {
-            if (mail.getType().equals(type)) {
-                sum += mail.getPrice();
-            }
-        }
-        return sum;
+        return mails.stream()
+                .filter(mail -> mail.getType().equals(type))
+                .mapToDouble(mail -> mail.getPrice())
+                .sum();
     }
 
 }

@@ -10,6 +10,10 @@ public class SmallBox implements Mail {
     private final String address;
     private final LocalDate posted;
 
+    public SmallBox(String address) {
+        this.address = address;
+        this.posted = LocalDate.now();
+    }
     public SmallBox(String address, LocalDate posted) {
         this.address = address;
         this.posted = posted;

@@ -12,6 +12,11 @@ public class BigBox implements Mail {
     private final String address;
     private final LocalDate posted;
 
+    public BigBox(String address, double gramms) {
+        this.address = address;
+        this.posted = LocalDate.now();
+        this.gramms = gramms;
+    }
     public BigBox(String address, LocalDate posted, double gramms) {
         this.address = address;
         this.posted = posted;

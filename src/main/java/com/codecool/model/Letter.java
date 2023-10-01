@@ -10,6 +10,10 @@ public class Letter implements Mail {
     private final String address;
     private final LocalDate posted;
 
+    public Letter(String address) {
+        this.address = address;
+        this.posted = LocalDate.now();
+    }
     public Letter(String address, LocalDate posted) {
         this.address = address;
         this.posted = posted;
