@@ -1,24 +1,15 @@
 package com.codecool.model;
 
-import java.time.LocalDate;
-
 import static com.codecool.model.MailTypes.BIG_BOX;
 import static com.codecool.model.MailTypes.BIG_BOX_FEE;
 
-public class BigBox implements Mail {
+public class BigBox extends Mail {
     private final MailTypes type = BIG_BOX;
     private final double gramms;
-    private final String address;
-
-    private LocalDate posted = null;
 
     public BigBox(String address, double gramms) {
-        this.address = address;
+        super(address);
         this.gramms = gramms;
-    }
-
-    private double calculatePrice() {
-        return BIG_BOX.getPrice() + gramms * BIG_BOX_FEE.getPrice();
     }
 
     @Override
@@ -27,18 +18,12 @@ public class BigBox implements Mail {
     }
 
     @Override
-    public LocalDate getDatePosted() {
-        return posted;
-    }
-
-    @Override
     public MailTypes getType() {
         return type;
     }
 
-    @Override
-    public void setDatePosted(LocalDate posted) {
-        this.posted = posted;
-    }
 
+    private double calculatePrice() {
+        return BIG_BOX.getPrice() + gramms * BIG_BOX_FEE.getPrice();
+    }
 }

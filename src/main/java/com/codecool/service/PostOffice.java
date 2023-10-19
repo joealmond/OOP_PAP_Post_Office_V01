@@ -19,7 +19,7 @@ public class PostOffice {
         LocalDate datePosted = LocalDate.now();
         mail.setDatePosted(datePosted);
         mails.add(mail);
-        System.out.println("Mail succsfully added!");
+        System.out.println("Mail succsfully posted!");
     }
 
     public List<Mail> mailsByDate(LocalDate date) {
@@ -30,10 +30,11 @@ public class PostOffice {
     }
 
     public double calculateIncome(MailTypes type) {
-        return mails.stream()
+        double income = mails.stream()
                 .filter(mail -> mail.getType().equals(type))
                 .mapToDouble(Mail::getPrice)
                 .sum();
+        return Math.round(income*100)/100.0;
     }
 
 }
